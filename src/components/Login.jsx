@@ -6,7 +6,6 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { setLoggedState } from "../redux/actions/index"
 import { connect } from "react-redux";
 
-
 function Login(props) {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [loginFailed, setLoginFailed] = useState(false)
@@ -33,21 +32,22 @@ function Login(props) {
     }
   }, [loginFailed])
 
-  const formSubmit = (e) => {
+  const formSubmit = e => {
     e.preventDefault();
-
     axiosWithAuth()
-      .post("api/auth/login", formState)
-      .then((res) => {
-        // console.log(res)
-        localStorage.setItem("bwSpotifyToken", res.data.token);
-        props.setLoggedState(true);
-        push("/dashboard");
-      })
-      .catch( err => {
-        setLoginFailed(true)
-      })
-  };
+    .post("/login", formState)
+    .then((res) => {
+      // console.log(res)
+      window.localStorage.setItem("token", res.data.payload);
+      props.setLoggedState(true);
+      push("/protected");
+    })
+    .catch( err => {
+      setLoginFailed(true)
+    })
+};
+  
+
 
   const inputChange = (e) => {
     e.persist();
