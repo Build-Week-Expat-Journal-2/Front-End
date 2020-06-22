@@ -12,29 +12,28 @@ function App(props) {
     const { isLogged } = props.state
     const { setLoggedState} = props
     useEffect(() => {
-      if (localStorage.getItem('bwSpotifyToken')){
+      if (localStorage.getItem('token')){
         localStorage.setItem('logged', true)
         setLoggedState(true)
-      } else if (localStorage.getItem('bwSpotifyToken') === null){
+      } else if (localStorage.getItem('token') === null){
         localStorage.setItem('logged', false)
         setLoggedState(false)
       }
     }, [isLogged, setLoggedState])
   return (
     <div>
-  
-  
- <Router>
-            <Link to='/login'>Login</Link>
-            <Link to='/register'>Register</Link>
-            <Link to='/protected'>Dashboard</Link>
-        <Switch>
-            <PrivateRoute exact path='/protected' component={Dashboard}/>
-            <Route path='/login' component={Login}/>
-            <Route path='/register' component={Register}/>
-        </Switch>
-    </Router>
+    <div>
+      <Navigation />
     
+      <Switch>
+        <Route exact path="/">
+          <Redirect to='/dashboard'/>
+        </Route>
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
+        <PrivateRoute exact path='/dashboard' component={Dashboard}/>
+      </Switch>
+    </div>
     </div>
   );
 }
