@@ -1,52 +1,43 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
-import loginSchema from "../validation/loginSchema"
-import { Link, useHistory } from "react-router-dom";
+import registerSchema from '../validation/registerSchema'
+import { Link } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import { setLoggedState } from "../redux/actions/index"
-import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-
-function Login(props) {
+export default function Register() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
-  const [loginFailed, setLoginFailed] = useState(false)
   const { push } = useHistory();
   const [formState, setFormState] = useState({
+    first_name: "",
+    last_name: "",
     username: "",
+    email: "",
     password: "",
   });
   const [errors, setErrors] = useState({
+    first_name: "",
+    last_name: "",
     username: "",
+    email: "",
     password: "",
   });
 
   useEffect(() => {
-    loginSchema.isValid(formState).then((valid) => {
+    registerSchema.isValid(formState).then((valid) => {
       setButtonDisabled(!valid);
     });
   }, [formState]);
-
-  useEffect(() => {
-    if (loginFailed === true){
-      const errDiv = document.querySelector('.loginFailed')
-      errDiv.classList.remove('hide')
-    }
-  }, [loginFailed])
 
   const formSubmit = (e) => {
     e.preventDefault();
 
     axiosWithAuth()
-      .post("api/auth/login", formState)
+      .post("api/auth/register", formState)
       .then((res) => {
-        // console.log(res)
-        localStorage.setItem("bwSpotifyToken", res.data.token);
-        props.setLoggedState(true);
-        push("/dashboard");
-      })
-      .catch( err => {
-        setLoginFailed(true)
-      })
+        // console.log(res.data)
+        push("/login");
+      });
   };
 
   const inputChange = (e) => {
@@ -58,8 +49,9 @@ function Login(props) {
     };
 
     yup
-      .reach(loginSchema, e.target.name)
+      .reach(registerSchema, e.target.name)
       .validate(e.target.value)
+      
       .then((valid) => {
         setErrors({
           ...errors,
@@ -75,16 +67,34 @@ function Login(props) {
 
     setFormState(newFormData);
   };
-
   return (
-    <form className="login" onSubmit={formSubmit}>
-      <div className='loginFailed hide'>Incorrect credentials. Please try again, or <Link to='/register'>Register</Link>.</div>
-      <h2>Login</h2>
+    <form className="registerForm">
+      <h2>Register</h2>
       <label>
-        {errors.username.length > 0 ? (
-          <p style={{ color: "red" }}>{errors.username}</p>
+        <input
+          type="text"
+          name="first_name"
+          placeholder="First Name"
+          value={formState.first_name}
+          onChange={inputChange}
+        />
+        {errors.first_name.length > 0 ? (
+        <p style={{ color: "red" }}>{errors.first_name}</p>
         ) : null}
-        {/* Username */}
+      </label>
+      <label>
+        <input
+          type="text"
+          name="last_name"
+          placeholder="Last Name"
+          value={formState.last_name}
+          onChange={inputChange}
+        />
+        {errors.last_name.length > 0 ? (
+          <p style={{ color: "red" }}>{errors.last_name}</p>
+        ) : null}
+      </label>
+      <label>
         <input
           type="text"
           name="username"
@@ -92,10 +102,24 @@ function Login(props) {
           value={formState.username}
           onChange={inputChange}
         />
+        {errors.username.length > 0 ? (
+          <p style={{ color: "red" }}>{errors.username}</p>
+        ) : null}
+      </label>
+      <label>
+        {errors.email.length > 0 ? (
+          <p style={{ color: "red" }}>{errors.email}</p>
+        ) : null}
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+          value={formState.email}
+          onChange={inputChange}
+        />
       </label>
 
       <label>
-        {/* Password: */}
         {errors.password.length > 0 ? (
           <p style={{ color: "red" }}>{errors.password}</p>
         ) : null}
@@ -109,17 +133,15 @@ function Login(props) {
       </label>
 
       <button onClick={formSubmit} disabled={buttonDisabled}>
-        Login
+        Submit
       </button>
 
       <div className="ctaAct">
-        <div>Don't have an account?</div>
-        <Link to={"/register"}>
-          <div>Create Account</div>
+        <div>Already have an account?</div>
+        <Link to={"/login"}>
+          <div>Login Here!</div>
         </Link>
       </div>
     </form>
   );
 }
-
-export default connect(null, { setLoggedState })(Login);
