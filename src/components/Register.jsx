@@ -69,6 +69,7 @@ export default function Register() {
   return (
     <form className="registerForm">
       <h2>Register</h2>
+      <br></br>
       <label>
         <input
           type="text"
@@ -79,10 +80,11 @@ export default function Register() {
           required
         />
         {errors.firstName.length > 0 ? (
-        <p style={{ color: "red" }}>{errors.first_name}</p>
+        <p style={{ color: "red" }}>{errors.firstName}</p>
         ) : null}
       </label>
-  
+      <br></br>
+      <br></br>
       <label>
         <input
           type="text"
@@ -96,6 +98,8 @@ export default function Register() {
           <p style={{ color: "red" }}>{errors.username}</p>
         ) : null}
       </label>
+      <br></br>
+      <br></br>
       <label>
         {errors.password.length > 0 ? (
           <p style={{ color: "red" }}>{errors.password}</p>
@@ -109,6 +113,8 @@ export default function Register() {
           required
         />
       </label>
+      <br></br>
+      <br></br>
       <label>
         <input
           type="text"
@@ -119,15 +125,19 @@ export default function Register() {
           required
         />
       {errors.location.length > 0 ? (
-          <p style={{ color: "red" }}>{errors.password}</p>
+          <p style={{ color: "red" }}>{errors.location}</p>
         ) : null}
       </label>
+      <br></br>
+      <br></br>
       <button onClick={formSubmit} disabled={buttonDisabled}>
         Submit
       </button>
-
+      <br></br>
       <div >
+      <br></br>
         <div>Already have an account?</div>
+        <br></br>
         <Link to={"/login"}>
           <div>Login Here!</div>
         </Link>

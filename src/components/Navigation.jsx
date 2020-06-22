@@ -9,8 +9,10 @@ function Navigation(props) {
   return props.state.isLogged ? (
     <nav>
       <h1>Expat</h1>
+      <br></br>
       <div>
         <Link to={"/protected"}>Dashboard</Link>
+        <br></br>
         <Link
           onClick={(e) => {
             e.preventDefault();
@@ -27,8 +29,11 @@ function Navigation(props) {
   ) : (
     <nav>
       <h1>Expat</h1>
+      <br></br>
       <div >
         <Link to={"/register"}>Register</Link>
+        <br></br>
+        <br></br>
         <Link to={"/login"}>Login</Link>
       </div>
     </nav>
