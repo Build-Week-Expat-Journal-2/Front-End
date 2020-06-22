@@ -22,20 +22,19 @@ function App(props) {
     }, [isLogged, setLoggedState])
   return (
     <div>
+  
+  
  <Router>
-                <Link to='/login'>Login</Link>
-                <Link to='/register'>Register</Link>
-                <Link to='/protected'>Dashboard</Link>
-        
-        
+            <Link to='/login'>Login</Link>
+            <Link to='/register'>Register</Link>
+            <Link to='/protected'>Dashboard</Link>
         <Switch>
             <PrivateRoute exact path='/protected' component={Dashboard}/>
             <Route path='/login' component={Login}/>
             <Route path='/register' component={Register}/>
-        
         </Switch>
-    
     </Router>
+    
     </div>
   );
 }

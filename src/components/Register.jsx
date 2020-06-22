@@ -9,18 +9,17 @@ export default function Register() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const { push } = useHistory();
   const [formState, setFormState] = useState({
-    first_name: "",
-    last_name: "",
     username: "",
-    email: "",
     password: "",
+    firstName: "",
+    location: ""
+
   });
   const [errors, setErrors] = useState({
-    first_name: "",
-    last_name: "",
     username: "",
-    email: "",
     password: "",
+    firstName: "",
+    location: ""
   });
 
   useEffect(() => {
@@ -33,9 +32,9 @@ export default function Register() {
     e.preventDefault();
 
     axiosWithAuth()
-      .post("api/auth/register", formState)
+      .post("/register", formState)
       .then((res) => {
-        // console.log(res.data)
+         console.log(res.data)
         push("/login");
       });
   };
@@ -73,27 +72,17 @@ export default function Register() {
       <label>
         <input
           type="text"
-          name="first_name"
+          name="firstName"
           placeholder="First Name"
-          value={formState.first_name}
+          value={formState.firstName}
           onChange={inputChange}
+          required
         />
-        {errors.first_name.length > 0 ? (
+        {errors.firstName.length > 0 ? (
         <p style={{ color: "red" }}>{errors.first_name}</p>
         ) : null}
       </label>
-      <label>
-        <input
-          type="text"
-          name="last_name"
-          placeholder="Last Name"
-          value={formState.last_name}
-          onChange={inputChange}
-        />
-        {errors.last_name.length > 0 ? (
-          <p style={{ color: "red" }}>{errors.last_name}</p>
-        ) : null}
-      </label>
+  
       <label>
         <input
           type="text"
@@ -101,24 +90,12 @@ export default function Register() {
           placeholder="Username"
           value={formState.username}
           onChange={inputChange}
+          required
         />
         {errors.username.length > 0 ? (
           <p style={{ color: "red" }}>{errors.username}</p>
         ) : null}
       </label>
-      <label>
-        {errors.email.length > 0 ? (
-          <p style={{ color: "red" }}>{errors.email}</p>
-        ) : null}
-        <input
-          type="text"
-          name="email"
-          placeholder="Email"
-          value={formState.email}
-          onChange={inputChange}
-        />
-      </label>
-
       <label>
         {errors.password.length > 0 ? (
           <p style={{ color: "red" }}>{errors.password}</p>
@@ -129,14 +106,27 @@ export default function Register() {
           placeholder="Password"
           value={formState.password}
           onChange={inputChange}
+          required
         />
       </label>
-
+      <label>
+        <input
+          type="text"
+          name="location"
+          placeholder="Location"
+          value={formState.location}
+          onChange={inputChange}
+          required
+        />
+      {errors.location.length > 0 ? (
+          <p style={{ color: "red" }}>{errors.password}</p>
+        ) : null}
+      </label>
       <button onClick={formSubmit} disabled={buttonDisabled}>
         Submit
       </button>
 
-      <div className="ctaAct">
+      <div >
         <div>Already have an account?</div>
         <Link to={"/login"}>
           <div>Login Here!</div>
