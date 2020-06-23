@@ -23,7 +23,7 @@ const Dashboard = () => {
 
   return (
    <div>
-     <h2>My Journal Entries</h2>
+     <h2>Journal Entries</h2>
      <div>
             {posts.map(post => (
               <Posts key={post.id} post={post} />
