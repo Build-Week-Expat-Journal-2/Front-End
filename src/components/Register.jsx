@@ -32,7 +32,7 @@ export default function Register() {
     e.preventDefault();
 
     axiosWithAuth()
-      .post("/register", formState)
+      .post("auth/register", formState)
       .then((res) => {
          console.log(res.data)
         push("/login");
@@ -69,7 +69,11 @@ export default function Register() {
   return (
     <form className="registerForm">
       <h2>Register</h2>
+      <br></br>
       <label>
+      {errors.firstName.length > 0 ? (
+        <p style={{ color: "red" }}>{errors.firstName}</p>
+        ) : null}
         <input
           type="text"
           name="firstName"
@@ -78,12 +82,28 @@ export default function Register() {
           onChange={inputChange}
           required
         />
-        {errors.firstName.length > 0 ? (
-        <p style={{ color: "red" }}>{errors.first_name}</p>
-        ) : null}
       </label>
-  
+      <br></br>
+      <br></br>
       <label>
+      {errors.location.length > 0 ? (
+          <p style={{ color: "red" }}>{errors.location}</p>
+        ) : null}
+        <input
+          type="text"
+          name="location"
+          placeholder="Location"
+          value={formState.location}
+          onChange={inputChange}
+          required
+        />
+      </label>
+      <br></br>
+      <br></br>
+      <label>
+      {errors.username.length > 0 ? (
+          <p style={{ color: "red" }}>{errors.username}</p>
+        ) : null}
         <input
           type="text"
           name="username"
@@ -92,10 +112,9 @@ export default function Register() {
           onChange={inputChange}
           required
         />
-        {errors.username.length > 0 ? (
-          <p style={{ color: "red" }}>{errors.username}</p>
-        ) : null}
       </label>
+      <br></br>
+      <br></br>
       <label>
         {errors.password.length > 0 ? (
           <p style={{ color: "red" }}>{errors.password}</p>
@@ -109,25 +128,16 @@ export default function Register() {
           required
         />
       </label>
-      <label>
-        <input
-          type="text"
-          name="location"
-          placeholder="Location"
-          value={formState.location}
-          onChange={inputChange}
-          required
-        />
-      {errors.location.length > 0 ? (
-          <p style={{ color: "red" }}>{errors.password}</p>
-        ) : null}
-      </label>
+      <br></br>
+      <br></br>
       <button onClick={formSubmit} disabled={buttonDisabled}>
         Submit
       </button>
-
+      <br></br>
       <div >
+      <br></br>
         <div>Already have an account?</div>
+        <br></br>
         <Link to={"/login"}>
           <div>Login Here!</div>
         </Link>

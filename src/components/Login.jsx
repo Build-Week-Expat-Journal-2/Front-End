@@ -5,6 +5,8 @@ import { Link, useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { setLoggedState } from "../redux/actions/index"
 import { connect } from "react-redux";
+import "../App.css"
+
 
 function Login(props) {
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -35,10 +37,9 @@ function Login(props) {
   const formSubmit = e => {
     e.preventDefault();
     axiosWithAuth()
-    .post("/login", formState)
-    .then((res) => {
-      // console.log(res)
-      window.localStorage.setItem("token", res.data.payload);
+    .post("auth/login", formState)
+    .then(res => {
+      window.localStorage.setItem("token", res.data.payload)
       props.setLoggedState(true);
       push("/protected");
     })
@@ -47,8 +48,6 @@ function Login(props) {
     })
 };
   
-
-
   const inputChange = (e) => {
     e.persist();
     const newFormData = {
@@ -78,13 +77,11 @@ function Login(props) {
 
   return (
     <form className="login" onSubmit={formSubmit}>
-      <div className='loginFailed hide'>Incorrect credentials. Please try again, or <Link to='/register'>Register</Link>.</div>
       <h2>Login</h2>
       <label>
         {errors.username.length > 0 ? (
           <p style={{ color: "red" }}>{errors.username}</p>
         ) : null}
-        {/* Username */}
         <input
           type="text"
           name="username"
@@ -93,9 +90,9 @@ function Login(props) {
           onChange={inputChange}
         />
       </label>
-
+      <br></br>
+      <br></br>
       <label>
-        {/* Password: */}
         {errors.password.length > 0 ? (
           <p style={{ color: "red" }}>{errors.password}</p>
         ) : null}
@@ -107,12 +104,14 @@ function Login(props) {
           onChange={inputChange}
         />
       </label>
-
+      <br></br>
+      <br></br>
       <button onClick={formSubmit} disabled={buttonDisabled}>
         Login
       </button>
-
-      <div className="ctaAct">
+      <br></br>
+      <br></br>
+      <div>
         <div>Don't have an account?</div>
         <Link to={"/register"}>
           <div>Create Account</div>

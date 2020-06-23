@@ -2,15 +2,16 @@ import React from "react";
 import { useHistory, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { setLoggedState } from "../redux/actions";
-
+import Dashboard from "./Dashboard";
 
 function Navigation(props) {
   const { push } = useHistory();
   return props.state.isLogged ? (
     <nav>
-      <h1>Expat</h1>
+      <h1>Expat User Profile</h1>
+      <br></br>
       <div>
-        <Link to={"/protected"}>Dashboard</Link>
+        <br></br>
         <Link
           onClick={(e) => {
             e.preventDefault();
@@ -22,13 +23,17 @@ function Navigation(props) {
         >
           Logout
         </Link>
+          <Dashboard/>
       </div>
     </nav>
   ) : (
     <nav>
-      <h1>Expat</h1>
+      <h1>Expat Journal </h1>
+      <br></br>
       <div >
         <Link to={"/register"}>Register</Link>
+        <br></br>
+        <br></br>
         <Link to={"/login"}>Login</Link>
       </div>
     </nav>
