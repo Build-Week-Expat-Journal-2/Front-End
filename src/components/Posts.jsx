@@ -1,16 +1,24 @@
 import React from 'react'
 
 export default function Posts(props) {
-const {title, location} = props.post;
+const {title, location, description, date, image_url} = props.post;
 
     
 
     return (
         <div>
-             <h2>{title}</h2>
+             <h4>{title}</h4>
         <div >
-          <h5>{location}</h5>
+          <h4>{location}</h4>
         </div>
+        <div >
+          <h4>{description}</h4>
+        </div>
+        <div >
+          <h4>{date}</h4>
+        </div>
+        <img src={image_url}/>
+         
         </div>
     )
 }

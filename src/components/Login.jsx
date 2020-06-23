@@ -39,7 +39,7 @@ function Login(props) {
     axiosWithAuth()
     .post("auth/login", formState)
     .then(res => {
-      window.localStorage.setItem("token", res.data.payload)
+      window.localStorage.setItem("token", res.data.token)
       props.setLoggedState(true);
       push("/protected");
     })

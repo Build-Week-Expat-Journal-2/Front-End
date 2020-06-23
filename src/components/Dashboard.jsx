@@ -9,6 +9,7 @@ const Dashboard = () => {
 
   useEffect(() => {
    const getData = () => {
+    const token = window.localStorage.getItem("token");
     axiosWithAuth()
       .get("/story")
       .then(response => {
@@ -22,7 +23,7 @@ const Dashboard = () => {
 
   return (
    <div>
-     <h4>My Journal Entries</h4>
+     <h2>My Journal Entries</h2>
      <div>
             {posts.map(post => (
               <Posts key={post.id} post={post} />
