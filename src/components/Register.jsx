@@ -32,7 +32,7 @@ export default function Register() {
     e.preventDefault();
 
     axiosWithAuth()
-      .post("/register", formState)
+      .post("auth/register", formState)
       .then((res) => {
          console.log(res.data)
         push("/login");
@@ -71,6 +71,9 @@ export default function Register() {
       <h2>Register</h2>
       <br></br>
       <label>
+      {errors.firstName.length > 0 ? (
+        <p style={{ color: "red" }}>{errors.firstName}</p>
+        ) : null}
         <input
           type="text"
           name="firstName"
@@ -79,13 +82,28 @@ export default function Register() {
           onChange={inputChange}
           required
         />
-        {errors.firstName.length > 0 ? (
-        <p style={{ color: "red" }}>{errors.firstName}</p>
-        ) : null}
       </label>
       <br></br>
       <br></br>
       <label>
+      {errors.location.length > 0 ? (
+          <p style={{ color: "red" }}>{errors.location}</p>
+        ) : null}
+        <input
+          type="text"
+          name="location"
+          placeholder="Location"
+          value={formState.location}
+          onChange={inputChange}
+          required
+        />
+      </label>
+      <br></br>
+      <br></br>
+      <label>
+      {errors.username.length > 0 ? (
+          <p style={{ color: "red" }}>{errors.username}</p>
+        ) : null}
         <input
           type="text"
           name="username"
@@ -94,9 +112,6 @@ export default function Register() {
           onChange={inputChange}
           required
         />
-        {errors.username.length > 0 ? (
-          <p style={{ color: "red" }}>{errors.username}</p>
-        ) : null}
       </label>
       <br></br>
       <br></br>
@@ -112,21 +127,6 @@ export default function Register() {
           onChange={inputChange}
           required
         />
-      </label>
-      <br></br>
-      <br></br>
-      <label>
-        <input
-          type="text"
-          name="location"
-          placeholder="Location"
-          value={formState.location}
-          onChange={inputChange}
-          required
-        />
-      {errors.location.length > 0 ? (
-          <p style={{ color: "red" }}>{errors.location}</p>
-        ) : null}
       </label>
       <br></br>
       <br></br>

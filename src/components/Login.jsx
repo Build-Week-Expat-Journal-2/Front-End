@@ -5,6 +5,8 @@ import { Link, useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { setLoggedState } from "../redux/actions/index"
 import { connect } from "react-redux";
+import "../App.css"
+
 
 function Login(props) {
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -35,9 +37,9 @@ function Login(props) {
   const formSubmit = e => {
     e.preventDefault();
     axiosWithAuth()
-    .post("/login", formState)
-    .then((res) => {
-      window.localStorage.setItem("token", res.data.payload);
+    .post("auth/login", formState)
+    .then(res => {
+      window.localStorage.setItem("token", res.data.payload)
       props.setLoggedState(true);
       push("/protected");
     })
@@ -74,8 +76,7 @@ function Login(props) {
   };
 
   return (
-    <form onSubmit={formSubmit}>
-  
+    <form className="login" onSubmit={formSubmit}>
       <h2>Login</h2>
       <label>
         {errors.username.length > 0 ? (

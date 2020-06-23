@@ -21,6 +21,7 @@ function App(props) {
       }
     }, [isLogged, setLoggedState])
   return (
+    <Router>
     <div>
     <div>
       <Navigation />
@@ -35,6 +36,7 @@ function App(props) {
       </Switch>
     </div>
     </div>
+    </Router>
   );
 }
 
