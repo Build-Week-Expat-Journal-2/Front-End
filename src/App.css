@@ -113,18 +113,6 @@ form {
   width: 40%;
 }
 
-button {
-    width: 10%;
-    align-self: center;
-    padding: 0.3%;
-    border-radius: 7px;
-    margin-top: 1%;
-    cursor: pointer;
-    outline: none;
-    background-color: rgba(212, 177, 81, 0.829);
-    border: none;
-    color: white;
-  }
 
 button:hover {
     background-color: #3F0D12 ;

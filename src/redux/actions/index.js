@@ -21,3 +21,48 @@ export const fetchPostData = () => {
         })
     }
 }
+
+export const addPost = newPost => {
+    return dispatch => {
+        axiosWithAuth()
+        .post('/story', newPost)
+        .then (res => {
+            dispatch({
+                type: 'ADD_POST',
+                payload: res.data
+            })
+        })
+    }
+}
+
+export const deletePost = postId => {
+    return dispatch => {
+        axiosWithAuth()
+        .delete(`/story/${postId}`)
+        .then (res => {
+            axiosWithAuth()
+            .get('/story')
+            .then(res => 
+                dispatch({
+                    type: 'DELETE_POST',
+                    payload: res.data
+                }))
+        })
+    }
+}
+
+export const editPost = (postId, newPost) => {
+    return dispatch => (
+        axiosWithAuth()
+        .put(`/story/${postId}`, newPost)
+        .then( res => {
+            axiosWithAuth()
+            .get('/story')
+            .then( res =>
+                dispatch({
+                    type: 'EDIT_POST',
+                    payload: res.data
+                }))
+        })
+    )
+}

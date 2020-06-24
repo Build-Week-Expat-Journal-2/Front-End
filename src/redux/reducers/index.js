@@ -17,7 +17,22 @@ export const globalReducer = (state = initialState, action) => {
                 ...state,
                 postData: action.payload,
                 isFetching: false
-            }    
+            }
+        case 'ADD_POST':
+            return {
+                ...state,
+                fetchPostData: [...state.fetchPostData, action.payload]
+            } 
+        case 'DELETE_POST':
+            return {
+                ...state,
+                fetchPostData: action.payload
+            }
+        case 'EDIT_POST':
+            return {
+                ...state,
+                fetchPostData: action.payload
+            }               
             default:
                 return state
         }

@@ -8,6 +8,7 @@ import Register from './components/Register';
 import { connect } from 'react-redux';
 import {setLoggedState} from './redux/actions'
 import "./App.css";
+import UpdatePost from "./components/UpdatePost";
 
 function App(props) {
     
@@ -33,6 +34,9 @@ function App(props) {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <PrivateRoute exact path='/dashboard' component={Dashboard}/>
+        <PrivateRoute exact path='/dashboard/update-post/:id'
+        render={props => <UpdatePost {...props} />}
+        />
       </Switch>
     </div>
     </div>
