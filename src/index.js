@@ -4,7 +4,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { globalReducer } from './redux/reducers'
 
-// REDUX STATE-MANAGEMENT
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'

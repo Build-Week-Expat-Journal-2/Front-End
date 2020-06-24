@@ -1,25 +1,19 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import Posts from "./Posts";
-import {axiosWithAuth} from "../utils/axiosWithAuth"
+
 import "../App.css";
+import {connect}  from 'react-redux';
 
+import { fetchPostData} from '../redux/actions/index'
 
-const Dashboard = () => {
-  const [posts, setPosts] = useState([])
+const Dashboard = (props) => {
 
-  useEffect(() => {
-   const getData = () => {
-    const token = window.localStorage.getItem("token");
-    axiosWithAuth()
-      .get("/story")
-      .then(response => {
-        console.log(response)
-        setPosts(response.data)
-      })
-      .catch(err => console.log(err));
-  };
-  getData();
-}, []);
+const {fetchPostData} = props
+
+useEffect(() => {
+  fetchPostData()
+}, [fetchPostData])
+
 
   return (
     <>
@@ -66,7 +60,7 @@ const Dashboard = () => {
      <br></br>
      <br></br>
      <div>
-            {posts.map(post => (
+            {props.postData.map(post => (
               <Posts key={post.id} post={post} />
             ))}
           </div>
@@ -76,4 +70,12 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+
+const mapStateToProps = (state) => {
+  return {
+    postData: state.postData,
+    isFetching: state.isFetching,
+  };
+};
+
+export default connect(mapStateToProps, {fetchPostData})(Dashboard);

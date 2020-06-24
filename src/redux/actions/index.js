@@ -1,3 +1,5 @@
+import {axiosWithAuth} from '../../utils/axiosWithAuth';
+
 export const setLoggedState = response => {
     return dispatch => (
         dispatch({
@@ -5,4 +7,17 @@ export const setLoggedState = response => {
             payload: response
         })
     )
+}
+
+export const fetchPostData = () => {
+    return dispatch => {
+        axiosWithAuth()
+        .get('/story')
+        .then(res => {
+            dispatch({
+                type: 'FETCH_POST_DATA',
+                payload: res.data
+            })
+        })
+    }
 }

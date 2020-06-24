@@ -10,17 +10,16 @@ import {setLoggedState} from './redux/actions'
 import "./App.css";
 
 function App(props) {
-    const { isLogged } = props.state
-    const { setLoggedState} = props
+    
     useEffect(() => {
       if (localStorage.getItem('token')){
         localStorage.setItem('logged', true)
-        setLoggedState(true)
+        props.setLoggedState(true)
       } else if (localStorage.getItem('token') === null){
         localStorage.setItem('logged', false)
-        setLoggedState(false)
+        props.setLoggedState(false)
       }
-    }, [isLogged, setLoggedState])
+    }, [props.isLogged, props.setLoggedState])
   return (
     <Router>
     <div>
