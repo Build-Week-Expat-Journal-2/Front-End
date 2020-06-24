@@ -107,8 +107,8 @@ function Login(props) {
       </button>
       <br></br>
       <br></br>
-      <div>
-        <div>Don't have an account?</div>
+      <div className="createAccount">
+        <p>New Here?</p>
         <Link to={"/register"}>
           <div className="loginOut">Create Account</div>
         </Link>
