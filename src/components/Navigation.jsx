@@ -10,9 +10,7 @@ function Navigation(props) {
   
   return props.state.isLogged ? (
     <nav className="nav">
-      <br></br>
       <div>
-        <br></br>
         <Link className="loginOut"
           onClick={(e) => {
             e.preventDefault();
@@ -30,7 +28,6 @@ function Navigation(props) {
     <nav className="nav">
     <img src="https://www.freelogodesign.org/file/app/client/thumb/10f9860d-2f4f-47dc-ac63-716d9bfbba54_200x200.png?1592777050189" />
      
-      <br></br>
       <div className="nav" >
       <Link to={"/register"}>Home</Link>
       </div>
