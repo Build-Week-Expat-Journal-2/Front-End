@@ -4,21 +4,14 @@
   padding: 0;
   margin: 0;
   max-width: 100%;
-  /* border: 1px solid grey; */
+  border: 1px solid grey;
+  /* font-size: 62.5%; */
 }
 
-.entries {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  font-family: 'Open Sans', sans-serif;
-  color: black;
-  background-color: whitesmoke;
-  border: 2px solid #3F0D12;
-  border-radius: 6px;
-  width: 60vw;
-  margin: 0 auto;
-}
+
+
+
+
 
 /* NAV SECTION */
 .nav img {
@@ -63,28 +56,113 @@
   text-transform: lowercase; 
 }
 
-
-.newPost {
-  text-align: left;
+/* DASHBOARD SECTION */
+.main-container {
   display: flex;
   flex-direction: column;
-  justify-content: left;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+/* TITLE */
+.main-container h1 {
+  font-family: 'Offside', cursive;
+  color: #3F0D12;
+  border-bottom: 3px solid #3F0D12;
+  border-top: 3px solid #3F0D12;
+  font-size: 3rem;
+  width: 30%;
+  text-align: center;
 }
 
+/* NEW POST SECTION */
+.newPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+.newPost h2 {
+  font-family: 'Offside', cursive;
+  color: #3F0D12;
+  border-bottom: 3px solid #3F0D12;
+  border-top: 3px solid #3F0D12;
+  width: 30%;
+  margin: 2%;
+}
+
+/* POST FORM */
 .postInputs {
   display: flex;
   flex-direction: column;
-  justify-content: left;
+  justify-content: center;
+  align-items: center;
   padding: 5px;
 }
 
-.img {
+/* USER POSTS */
+.entries {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-family: 'Open Sans', sans-serif;
+  background-color: whitesmoke;
+  border: 5px solid #3F0D12;
+  border-radius: 6px;
+  width: 70%;
+  margin: 2% auto;
+}
+
+.entries .post {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  height: 300px;
-  width: 300px;
-  margin: 0 auto;
-  padding: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.post .post-title {
+  width: 80%;
+  margin: 2%;
+
+}
+
+.post .post-date {
+  width: 80%;
+  margin: 2%;
+}
+
+.post .post-location {
+  width: 80%;
+  margin: 2%;
+}
+
+.post .post-description {
+  width: 80%;
+  margin: 2%;
+}
+
+.post .edit-post {
+  width: 20%;
+  padding: 2%;
+  margin: 2%;
+}
+
+.img-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container img {
+  width: 70%;
+  margin: 2%;
+  
 }
 
 h2 {

@@ -24,12 +24,12 @@ const Dashboard = () => {
   return (
     <>
    <div>
-   <div >
-     <h2>Expat Journal</h2>
+   <div className="main-container">
+     <h1>Expat Journal</h1>
      <br></br>
      <br></br>
      <div className="newPost">
-     <h6>ADD POST:</h6>
+     <h2>New Post:</h2>
      <form className="postInputs">
        <label>
          <input
@@ -55,6 +55,7 @@ const Dashboard = () => {
          />
        </label>
        <br></br>
+       
         <label>
          <input
            placeholder="Image"
