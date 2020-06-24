@@ -35,6 +35,7 @@ function Login(props) {
     .post("auth/login", formState)
     .then(res => {
       window.localStorage.setItem("token", res.data.token)
+      localStorage.setItem("id", res.data.id)
       props.setLoggedState(true);
       push("/protected");
     })

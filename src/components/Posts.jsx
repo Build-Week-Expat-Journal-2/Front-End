@@ -37,6 +37,9 @@ const handleDelete = e => {
         </div>
         <br></br>
         <br></br>
+        <div >
+        <img className="img" src={image_url}/>
+        </div>
         <br></br>
         <button onClick={() => {
            push(`/protected/update-post/${id}`)
@@ -46,9 +49,7 @@ const handleDelete = e => {
         <button onClick={handleDelete}>Delete</button>
         </div>
         </>
-        <div >
-        <img className="img" src={image_url}/>
-        </div>
+        
         </div>
     )
 }

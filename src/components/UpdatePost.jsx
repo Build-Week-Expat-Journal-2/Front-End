@@ -9,7 +9,7 @@ const initialFormValue = {
     date: "",
     location: "",
     post: "",
-    image: ""
+    image_url: ""
   }
 
 const UpdatePost = (props) => {
@@ -76,7 +76,7 @@ const handleSubmit = e => {
                 name="post"
                 onChange={changeHandler}
                 placeholder="post"
-                value={post.image}
+                value={post.image_url}
             />
 
         <button>update</button>

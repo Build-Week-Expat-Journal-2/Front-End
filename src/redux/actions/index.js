@@ -1,5 +1,6 @@
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
 
+
 export const setLoggedState = response => {
     return dispatch => (
         dispatch({
@@ -22,16 +23,18 @@ export const fetchPostData = () => {
     }
 }
 
-export const addPost = newPost => {
+
+export const addPost = (id, newPost) => {
     return dispatch => {
         axiosWithAuth()
-        .post('/story', newPost)
+        .post(`/story/${id}/story`, newPost)
         .then (res => {
             dispatch({
                 type: 'ADD_POST',
                 payload: res.data
             })
         })
+        .catch(err => console.log(err))
     }
 }
 
@@ -47,6 +50,7 @@ export const deletePost = postId => {
                     type: 'DELETE_POST',
                     payload: res.data
                 }))
+            .catch(err => console.log(err))
         })
     }
 }
