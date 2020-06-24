@@ -84,11 +84,6 @@ body {
   width: 70%;
   background-color: #3F0D12;
   border: 5px solid #8D775F;
-  /* background-image: url('https://images.unsplash.com/photo-1473163928189-364b2c4e1135?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed; */
 }
 
 .newPost h2 {
@@ -273,7 +268,7 @@ button:disabled {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 60%;
+  width: 80%;
   margin: 3%;
 }
 
