@@ -8,19 +8,19 @@ import Register from './components/Register';
 import { connect } from 'react-redux';
 import {setLoggedState} from './redux/actions'
 import "./App.css";
+import UpdatePost from "./components/UpdatePost";
 
 function App(props) {
-    const { isLogged } = props.state
-    const { setLoggedState} = props
+    
     useEffect(() => {
       if (localStorage.getItem('token')){
         localStorage.setItem('logged', true)
-        setLoggedState(true)
+        props.setLoggedState(true)
       } else if (localStorage.getItem('token') === null){
         localStorage.setItem('logged', false)
-        setLoggedState(false)
+        props.setLoggedState(false)
       }
-    }, [isLogged, setLoggedState])
+    }, [props.isLogged, props.setLoggedState])
   return (
     <Router>
     <div>
@@ -34,6 +34,9 @@ function App(props) {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <PrivateRoute exact path='/dashboard' component={Dashboard}/>
+        <PrivateRoute exact path='/dashboard/update-post/:id'
+        render={props => <UpdatePost {...props} />}
+        />
       </Switch>
     </div>
     </div>

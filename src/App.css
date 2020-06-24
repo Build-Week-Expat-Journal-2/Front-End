@@ -26,7 +26,6 @@ body {
   text-decoration: none;
   font-family: 'Offside', cursive;
   background-color: #D5BF86;
-  
 }
 
  .nav a {
@@ -45,6 +44,7 @@ body {
 /*LOGIN CREATE ACCOUNT LINK  */
 .loginOut {
   text-decoration: none;
+  color: #3F0D12;
   width: 60%;
   font-size: 2rem;
   margin: 2%;
@@ -75,7 +75,6 @@ body {
   text-align: center;
 }
 
-/* NEW POST SECTION */
 .newPost {
   display: flex;
   flex-direction: column;
@@ -232,6 +231,7 @@ form {
   font-size: 3.5rem;
 }
 
+
 .login label {
   margin: 3%;
 }
@@ -250,6 +250,7 @@ button {
   font-family: 'Offside', cursive;
   margin: 3%;
 }
+
 
 button:hover {
   background-color: #3F0D12 ;
