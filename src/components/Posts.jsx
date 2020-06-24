@@ -21,12 +21,13 @@ const {title, location, description, date, image_url} = props.post;
                 Post: {description}
                 </div>
                 <button className="edit-post">Edit Post</button>
-        </div>
+            </div>    
+        
         <div className="img-container">
             <img className="img" src={image_url}/>
         </div>    
           
-
+        
     </div>
     )
 }
