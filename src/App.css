@@ -1,64 +1,138 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  text-decoration: none;
+}
+
+.entries {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+  background-color: whitesmoke;
+  border: 2px solid #3F0D12;
+  border-radius: 6px;
+  width: 60vw;
+  margin: 0 auto;
+}
+
+.logo {
+    width: 50%;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  text-decoration: none;
+  font-family: 'Offside', cursive;
+}
+
+.loginOut {
+  text-decoration: none;
+}
+
+.loginOut:hover {
+  border-bottom: 3px solid #f1f0cc;
+  
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav a:hover {
+  border-bottom: 3px solid #f1f0cc;
+  text-decoration: none;
+}
+
+.newPost {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+
+.postInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 5px;
+}
+
+.div {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+}
+
+.img {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+
+  width: 30%;
+  margin: 0 auto; 
+}
+
+
+/* LOGIN/REGISTER STYLES */
 .login {
   text-align: center;
-  font-family: "Poppins";
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 10%;
+  margin: 0 auto;
+  width: 10%;
 }
 
-  .loginFailed.hide {
-      display: none;
-  }
+.logButton {
+  width: 40%;
+}
 
-  .loginFailed {
-    color: red;
-    margin-bottom: 3%;
-  }
-
-    a {
-      color: rgb(59, 73, 192);
-    }
-  
-
-
-    p {
-      font-size: 0.8rem;
-    }
-
-    input {
-      margin: 1%;
-      padding: 0.8% 1%;
-      width: 20%;
-    }
-  
-  button {
-    width: 8%;
+button {
+    width: 10%;
     align-self: center;
     padding: 0.3%;
-    border-radius: 15px;
+    border-radius: 7px;
     margin-top: 1%;
     cursor: pointer;
     outline: none;
-    background-color: #19e68c;
+    background-color: rgba(212, 177, 81, 0.829);
     border: none;
-    color: rgb(63, 62, 62);
+    color: white;
   }
-    button:hover {
-      background-color: rgb(29, 209, 131);
+
+button:hover {
+    background-color: #3F0D12 ;
     }
 
-    button:disabled {
+button:disabled {
       cursor: default;
       background-color: rgb(199, 198, 198);
       color: gray;
     }
   
-  .ctaAct {
-    margin-top: 2%;
-  }
-
-  select {
+select {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -83,3 +157,5 @@
     background-repeat: no-repeat;
     outline: 0;
   }
+
+  

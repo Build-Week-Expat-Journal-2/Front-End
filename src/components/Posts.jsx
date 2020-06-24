@@ -6,19 +6,36 @@ const {title, location, description, date, image_url} = props.post;
     
 
     return (
+        <div className="entries">
+        <>
+        <div className="div">
         <div>
-             <h4>{title}</h4>
-        <div >
-          <h4>{location}</h4>
+        Title: {title}
         </div>
-        <div >
-          <h4>{description}</h4>
+        <br></br>
+        <div>
+        Date Posted: {date}
         </div>
+        <br></br>
         <div >
-          <h4>{date}</h4>
+        Location: {location}
         </div>
-        <img src={image_url}/>
-         
+        <br></br>
+        <br></br>
+        <br></br>
+        <div >
+        Post: {description}
+        </div>
+        <br></br>
+        <br></br>
+        <br></br>
+       
+        <button>Edit Post</button>
+        </div>
+        </>
+        <div >
+        <img className="img" src={image_url}/>
+        </div>
         </div>
     )
 }
