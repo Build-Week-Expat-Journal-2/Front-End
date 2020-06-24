@@ -1,6 +1,7 @@
 * {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
+  text-decoration: none;
 }
 
 .entries {
@@ -14,7 +15,39 @@
   border-radius: 6px;
   width: 60vw;
   margin: 0 auto;
+}
+
+.logo {
+    width: 50%;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  text-decoration: none;
+  font-family: 'Offside', cursive;
+}
+
+.loginOut {
+  text-decoration: none;
+}
+
+.loginOut:hover {
+  border-bottom: 3px solid #f1f0cc;
   
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav a:hover {
+  border-bottom: 3px solid #f1f0cc;
+  text-decoration: none;
 }
 
 .newPost {
@@ -68,14 +101,19 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 10%;
+  margin: 0 auto;
+  width: 10%;
+}
+
+.logButton {
+  width: 40%;
 }
 
 button {
-    width: 8%;
+    width: 10%;
     align-self: center;
     padding: 0.3%;
-    border-radius: 10px;
+    border-radius: 7px;
     margin-top: 1%;
     cursor: pointer;
     outline: none;

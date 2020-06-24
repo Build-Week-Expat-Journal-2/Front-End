@@ -4,6 +4,7 @@ import registerSchema from '../validation/registerSchema'
 import { Link } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
+import "../App.css";
 
 export default function Register() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -130,7 +131,7 @@ export default function Register() {
       </label>
       <br></br>
       <br></br>
-      <button onClick={formSubmit} disabled={buttonDisabled}>
+      <button className="logButton" onClick={formSubmit} disabled={buttonDisabled}>
         Submit
       </button>
       <br></br>
@@ -139,7 +140,7 @@ export default function Register() {
         <div>Already have an account?</div>
         <br></br>
         <Link to={"/login"}>
-          <div>Login Here!</div>
+          <div className="loginOut">Login Here!</div>
         </Link>
       </div>
     </form>

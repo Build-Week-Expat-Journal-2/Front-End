@@ -72,7 +72,8 @@ function Login(props) {
 
   return (
     <form className="login" onSubmit={formSubmit}>
-      <h2>Login</h2>
+      <h2 >Login</h2>
+      <br></br>
       <label>
         {errors.username.length > 0 ? (
           <p style={{ color: "red" }}>{errors.username}</p>
@@ -101,7 +102,7 @@ function Login(props) {
       </label>
       <br></br>
       <br></br>
-      <button onClick={formSubmit} disabled={buttonDisabled}>
+      <button className="logButton" onClick={formSubmit} disabled={buttonDisabled}>
         Login
       </button>
       <br></br>
@@ -109,7 +110,7 @@ function Login(props) {
       <div>
         <div>Don't have an account?</div>
         <Link to={"/register"}>
-          <div>Create Account</div>
+          <div className="loginOut">Create Account</div>
         </Link>
       </div>
     </form>
