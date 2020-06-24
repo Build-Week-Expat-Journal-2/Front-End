@@ -73,8 +73,8 @@ function Login(props) {
 
   return (
     <form className="login" onSubmit={formSubmit}>
-      <h2 >Login</h2>
-      <br></br>
+      <div className="mid-container">
+      <h1>Login</h1>
       <label>
         {errors.username.length > 0 ? (
           <p style={{ color: "red" }}>{errors.username}</p>
@@ -87,8 +87,6 @@ function Login(props) {
           onChange={inputChange}
         />
       </label>
-      <br></br>
-      <br></br>
       <label>
         {errors.password.length > 0 ? (
           <p style={{ color: "red" }}>{errors.password}</p>
@@ -101,18 +99,15 @@ function Login(props) {
           onChange={inputChange}
         />
       </label>
-      <br></br>
-      <br></br>
       <button className="logButton" onClick={formSubmit} disabled={buttonDisabled}>
         Login
       </button>
-      <br></br>
-      <br></br>
-      <div>
-        <div>Don't have an account?</div>
+      <div className="createAccount">
+        <p>New Here?</p>
         <Link to={"/register"}>
           <div className="loginOut">Create Account</div>
         </Link>
+      </div>
       </div>
     </form>
   );

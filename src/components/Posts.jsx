@@ -16,7 +16,8 @@ const handleDelete = e => {
 
     return (
         <div className="entries">
-        <>
+
+        
         <div className="div">
         <div>
         Title: {title}
@@ -48,9 +49,33 @@ const handleDelete = e => {
         >Edit Post</button>
         <button onClick={handleDelete}>Delete</button>
         </div>
-        </>
+        
         
         </div>
+      
+            <div className="post">
+                <div className="post-title">
+                Title: {title}
+                </div>
+                <div className="post-date">
+                Date Posted: {date}
+                </div>
+                <div className="post-location">
+                Location: {location}
+                </div>
+                <div className="post-description" >
+                Post: {description}
+                </div>
+                <button className="edit-post">Edit Post</button>
+            </div>    
+        
+        <div className="img-container">
+            <img className="img" src={image_url}/>
+        </div>    
+          
+        
+    </div>
+
     )
 }
 
