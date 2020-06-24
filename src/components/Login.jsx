@@ -72,7 +72,7 @@ function Login(props) {
 
   return (
     <form className="login" onSubmit={formSubmit}>
-      <h2 >Login</h2>
+      <h1>Login</h1>
       <br></br>
       <label>
         {errors.username.length > 0 ? (

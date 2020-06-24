@@ -69,7 +69,7 @@ export default function Register() {
   };
   return (
     <form className="login">
-      <h2>Register</h2>
+      <h1>Register</h1>
       <br></br>
       <label>
       {errors.firstName.length > 0 ? (
@@ -135,14 +135,13 @@ export default function Register() {
         Submit
       </button>
       <br></br>
-      <div >
       <br></br>
-        <div>Already have an account?</div>
-        <br></br>
+        <div className="loginHere" >
+          <p>Already have an account?</p>
         <Link to={"/login"}>
-          <div className="loginOut">Login Here!</div>
+          <div className="loginOut">Login Here</div>
         </Link>
-      </div>
+        </div>
     </form>
   );
 }
