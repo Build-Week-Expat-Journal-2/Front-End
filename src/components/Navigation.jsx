@@ -10,7 +10,6 @@ function Navigation(props) {
   
   return props.state.isLogged ? (
     <nav>
-      <h1>Expat User Profile</h1>
       <br></br>
       <div>
         <br></br>

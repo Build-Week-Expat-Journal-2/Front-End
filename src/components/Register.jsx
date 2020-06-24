@@ -67,7 +67,7 @@ export default function Register() {
     setFormState(newFormData);
   };
   return (
-    <form className="registerForm">
+    <form className="login">
       <h2>Register</h2>
       <br></br>
       <label>

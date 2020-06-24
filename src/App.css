@@ -1,3 +1,8 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
 .entries {
   display: flex;
   align-items: center;
@@ -5,16 +10,32 @@
   font-family: 'Open Sans', sans-serif;
   color: black;
   background-color: whitesmoke;
-  border-bottom: 2px solid #3F0D12;
+  border: 2px solid #3F0D12;
+  border-radius: 6px;
   width: 60vw;
   margin: 0 auto;
   
 }
 
+.newPost {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+
+.postInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 5px;
+}
+
 .div {
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    width: 30vw;
     margin: 0 auto;
     padding: 15px;
     text-align: center;
@@ -33,6 +54,13 @@ h2 {
   text-align: center;
 }
 
+form {
+  display: flex;
+
+  width: 30%;
+  margin: 0 auto; 
+}
+
 
 /* LOGIN/REGISTER STYLES */
 .login {
@@ -47,11 +75,11 @@ button {
     width: 8%;
     align-self: center;
     padding: 0.3%;
-    border-radius: 15px;
+    border-radius: 10px;
     margin-top: 1%;
     cursor: pointer;
     outline: none;
-    background-color: #D5BF86;
+    background-color: rgba(212, 177, 81, 0.829);
     border: none;
     color: white;
   }
