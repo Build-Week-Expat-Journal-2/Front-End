@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import Register from './components/Register';
 import { connect } from 'react-redux';
 import {setLoggedState} from './redux/actions'
+import "./App.css";
 
 function App(props) {
     const { isLogged } = props.state

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Posts from "./Posts";
 import {axiosWithAuth} from "../utils/axiosWithAuth"
-
+import "../App.css";
 
 
 const Dashboard = () => {
@@ -23,7 +23,9 @@ const Dashboard = () => {
 
   return (
    <div>
-     <h2>Journal Entries</h2>
+     <h2>Journal</h2>
+     <br></br>
+     <br></br>
      <div>
             {posts.map(post => (
               <Posts key={post.id} post={post} />

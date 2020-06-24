@@ -10,7 +10,7 @@ import "../App.css"
 
 function Login(props) {
   const [buttonDisabled, setButtonDisabled] = useState(true);
-  const [loginFailed, setLoginFailed] = useState(false)
+
   const { push } = useHistory();
   const [formState, setFormState] = useState({
     username: "",
@@ -27,12 +27,7 @@ function Login(props) {
     });
   }, [formState]);
 
-  useEffect(() => {
-    if (loginFailed === true){
-      const errDiv = document.querySelector('.loginFailed')
-      errDiv.classList.remove('hide')
-    }
-  }, [loginFailed])
+
 
   const formSubmit = e => {
     e.preventDefault();
@@ -44,7 +39,7 @@ function Login(props) {
       push("/protected");
     })
     .catch( err => {
-      setLoginFailed(true)
+       console.log(err)
     })
 };
   

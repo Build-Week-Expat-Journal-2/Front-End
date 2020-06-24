@@ -3,9 +3,11 @@ import { useHistory, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { setLoggedState } from "../redux/actions";
 import Dashboard from "./Dashboard";
+import "../App.css";
 
 function Navigation(props) {
   const { push } = useHistory();
+  
   return props.state.isLogged ? (
     <nav>
       <h1>Expat User Profile</h1>
