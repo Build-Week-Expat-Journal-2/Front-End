@@ -29,7 +29,6 @@ const {title, location, description, date, image_url} = props.post;
         <br></br>
         <br></br>
         <br></br>
-       
         <button>Edit Post</button>
         </div>
         </>
