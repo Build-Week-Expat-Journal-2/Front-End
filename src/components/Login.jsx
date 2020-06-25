@@ -72,8 +72,8 @@ function Login(props) {
   };
 
   return (
-    <form className="login" onSubmit={formSubmit}>
-      <div className="mid-container">
+    <form onSubmit={formSubmit}>
+      <div >
       <h1>Login</h1>
       <label>
         {errors.username.length > 0 ? (
@@ -99,13 +99,13 @@ function Login(props) {
           onChange={inputChange}
         />
       </label>
-      <button className="logButton" onClick={formSubmit} disabled={buttonDisabled}>
+      <button onClick={formSubmit} disabled={buttonDisabled}>
         Login
       </button>
-      <div className="createAccount">
+      <div >
         <p>New Here?</p>
         <Link to={"/register"}>
-          <div className="loginOut">Create Account</div>
+          <div >Create Account</div>
         </Link>
       </div>
       </div>

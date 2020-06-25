@@ -4,6 +4,7 @@ import {useParams, useHistory} from "react-router-dom";
 
 const NewPost = props => {
 const {id, title, date, location, description, image_url} = props.post
+const {push} = useHistory();
 
 const handleDelete = e => {
   e.preventDefault()
@@ -44,7 +45,7 @@ const handleDelete = e => {
             </div>
             <br></br>
        <br></br>
-            <button>update</button>
+            {/* <button onClick={() => push(`/dashboard/update-post/${id}`)} >update</button> */}
          
             <br></br>
             <br></br>

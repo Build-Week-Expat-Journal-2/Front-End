@@ -28,6 +28,7 @@ const addPost = newPost => {
     .post(`/story/${id}/story`, newPost)
     .then(res => {
       console.log(res, "new post")
+      window.location.reload();
       setPosts([
         ...posts,
         newPost
@@ -105,7 +106,7 @@ return (
          />
        </label>
        <br></br>
-        <br></br>
+       <br></br>
        <br></br>
         <label>
          <input
@@ -123,13 +124,12 @@ return (
        <br></br>
       </form>
       <br></br>
-        <br></br>
-      
+      <br></br>
       <div>
-        {posts.map(post => (
-          <NewPost key={post.id} post={post}/>
-        ))
-        }
+          {posts.map(post => (
+            <NewPost key={post.id} post={post}/>
+          ))
+          }
       </div>
       </div>
     )

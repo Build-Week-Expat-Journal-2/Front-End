@@ -1,52 +1,64 @@
 import React, {useState, useEffect} from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+
+const initialStory = {
+    title: "",
+    date: "", 
+    location: "", 
+    description: "",
+    image_url: ""
+}
 
 
+const UpdatePost = (props) => {
+const [story, setStory] = useState(initialStory);
 
+const {push} = useHistory();
+const {id} = useParams();
 
-const UpdatePost = () => {
+useEffect(() => {
+    axiosWithAuth() 
+      .get(`/story/${id}`)
+      .then(res => {
+          setStory(res.data)
+      })
+      .catch(err => console.log(err))
+}, [id]);
 
+const changeHandler = ev => {
+    ev.persist();
+    let value = ev.target.value;
 
+    setStory({
+        ...story,
+        [ev.target.name]: value
+    })
+}
+
+const handleSubmit = e => {
+    e.preventDefault();
+    axiosWithAuth()
+    .put(`/story/${id}`, story)
+    .then(res => {
+        props.getStoryList();
+        push(`/story/${id}`);
+    })
+    .catch(err => console.log(err))
+}
+    
     return(
         <div>
         <h2>Update Post</h2>
-        {/* <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                name="title"
-                onChange={changeHandler}
-                placeholder="title"
-                value={post.title}
-            />
-             <input
-                type="text"
-                name="date"
-                onChange={changeHandler}
-                placeholder="date"
-                value={post.date}
-            />
-             <input
-                type="text"
-                name="location"
-                onChange={changeHandler}
-                placeholder="location"
-                value={post.location}
-            />
-             <input
-                type="text"
-                name="post"
-                onChange={changeHandler}
-                placeholder="post"
-                value={post.post}
-            />
-                <input
-                type="text"
-                name="post"
-                onChange={changeHandler}
-                placeholder="post"
-                value={post.image_url}
-            />
-        </form> */}
+        <form onSubmit={handleSubmit}>
+            <label>
+                <input></input>
+            </label>
+            <button>update</button>
+            <div >
+        <Link to="/dashboard">Back</Link>
+      </div>
+        </form>
         </div>
 
     )

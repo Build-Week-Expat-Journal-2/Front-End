@@ -68,8 +68,8 @@ export default function Register() {
     setFormState(newFormData);
   };
   return (
-    <form className="login">
-      <div className="mid-container">
+    <form >
+      <div >
       <h1>Register</h1>
       <label>
       {errors.firstName.length > 0 ? (
@@ -123,13 +123,13 @@ export default function Register() {
           required
         />
       </label>
-      <button className="logButton" onClick={formSubmit} disabled={buttonDisabled}>
+      <button  onClick={formSubmit} disabled={buttonDisabled}>
         Submit
       </button>
-        <div className="loginHere" >
+        <div  >
           <p>Have an Account?</p>
         <Link to={"/login"}>
-          <div className="loginOut">Login Here</div>
+          <div >Login Here</div>
         </Link>
         </div>
         </div>

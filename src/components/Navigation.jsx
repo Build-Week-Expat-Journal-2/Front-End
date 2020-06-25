@@ -9,9 +9,9 @@ function Navigation(props) {
   const { push } = useHistory();
   
   return props.state.isLogged ? (
-    <nav className="nav">
+    <nav >
       <div>
-        <Link className="loginOut"
+        <Link 
           onClick={(e) => {
             e.preventDefault();
             localStorage.removeItem("token");
@@ -26,25 +26,25 @@ function Navigation(props) {
     </nav>
   ) : (
     <div >
-    <nav className="nav">
+    <nav >
     <img src="https://www.freelogodesign.org/file/app/client/thumb/10f9860d-2f4f-47dc-ac63-716d9bfbba54_200x200.png?1592777050189" alt="expat logo"/>
      
-      <div className="nav" >
+      <div >
       <Link to={"/register"}>Home</Link>
       </div>
-      <div className="nav" >
+      <div  >
       <Link to={"/register"}>About</Link>
       </div>
-      <div className="nav" >
+      <div  >
       <Link to={"/register"}>Team</Link>
       </div>
-      <div className="nav" >
+      <div >
       <Link to={"/register"}>Contact</Link>
       </div>
-      <div className="nav" >
+      <div >
       <Link to={"/register"}>Register</Link>
       </div>
-      <div className="nav" >
+      <div >
         <Link to={"/login"}>Login</Link>
       </div>
     </nav>
