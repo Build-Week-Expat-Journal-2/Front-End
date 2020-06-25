@@ -1,48 +1,16 @@
 import React, {useState, useEffect} from "react";
 import { useParams, useHistory } from "react-router-dom";
-import axios from "axios";
-import {connect}  from 'react-redux';
-import { fetchPostData, editPost} from '../redux/actions/index'
 
-const initialFormValue = {
-    title: "",
-    date: "",
-    location: "",
-    post: "",
-    image_url: ""
-  }
 
-const UpdatePost = (props) => {
-const {title, location, description, date, image_url} = props.post;
-const [post, setPost] = useState(initialFormValue);
-const {push} = useHistory();
-const {id} = useParams();
- 
-useEffect(() => {
-    fetchPostData()
-  }, [fetchPostData])
 
-const changeHandler = ev => {
-    ev.persist();
-    let value = ev.target.value;
 
-    setPost({
-        ...post, 
-        [ev.target.name]: value
-    })
+const UpdatePost = () => {
 
-}
-
-const handleSubmit = e => {
-    e.preventDefault();
-    editPost();
-    push(`/story/${id}`)
-  };
 
     return(
         <div>
         <h2>Update Post</h2>
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
             <input
                 type="text"
                 name="title"
@@ -78,9 +46,7 @@ const handleSubmit = e => {
                 placeholder="post"
                 value={post.image_url}
             />
-
-        <button>update</button>
-        </form>
+        </form> */}
         </div>
 
     )

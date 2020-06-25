@@ -27,7 +27,7 @@ function Navigation(props) {
   ) : (
     <div >
     <nav className="nav">
-    <img src="https://www.freelogodesign.org/file/app/client/thumb/10f9860d-2f4f-47dc-ac63-716d9bfbba54_200x200.png?1592777050189" />
+    <img src="https://www.freelogodesign.org/file/app/client/thumb/10f9860d-2f4f-47dc-ac63-716d9bfbba54_200x200.png?1592777050189" alt="expat logo"/>
      
       <div className="nav" >
       <Link to={"/register"}>Home</Link>
